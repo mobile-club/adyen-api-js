@@ -172,6 +172,7 @@ Class | Method | HTTP request | Description
  - [AdyenApiJs.PayoutResultCodeType](docs/PayoutResultCodeType.md)
  - [AdyenApiJs.Recurring](docs/Recurring.md)
  - [AdyenApiJs.RecurringDetail](docs/RecurringDetail.md)
+ - [AdyenApiJs.RecurringDetailContainer](docs/RecurringDetailContainer.md)
  - [AdyenApiJs.RecurringDetailReferenceType](docs/RecurringDetailReferenceType.md)
  - [AdyenApiJs.RecurringDetailsRequest](docs/RecurringDetailsRequest.md)
  - [AdyenApiJs.RecurringDetailsResult](docs/RecurringDetailsResult.md)

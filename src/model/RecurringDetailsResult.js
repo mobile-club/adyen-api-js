@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/RecurringDetail'], factory);
+    define(['ApiClient', 'model/RecurringDetailContainer'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./RecurringDetail'));
+    module.exports = factory(require('../ApiClient'), require('./RecurringDetailContainer'));
   } else {
     // Browser globals (root is window)
     if (!root.AdyenApiJs) {
       root.AdyenApiJs = {};
     }
-    root.AdyenApiJs.RecurringDetailsResult = factory(root.AdyenApiJs.ApiClient, root.AdyenApiJs.RecurringDetail);
+    root.AdyenApiJs.RecurringDetailsResult = factory(root.AdyenApiJs.ApiClient, root.AdyenApiJs.RecurringDetailContainer);
   }
-}(this, function(ApiClient, RecurringDetail) {
+}(this, function(ApiClient, RecurringDetailContainer) {
   'use strict';
 
 
@@ -68,7 +68,7 @@
         obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'Date');
       }
       if (data.hasOwnProperty('details')) {
-        obj['details'] = ApiClient.convertToType(data['details'], [RecurringDetail]);
+        obj['details'] = ApiClient.convertToType(data['details'], [RecurringDetailContainer]);
       }
       if (data.hasOwnProperty('lastKnownShopperEmail')) {
         obj['lastKnownShopperEmail'] = ApiClient.convertToType(data['lastKnownShopperEmail'], 'String');
@@ -87,7 +87,7 @@
   exports.prototype['creationDate'] = undefined;
   /**
    * Payment details stored for recurring payments.
-   * @member {Array.<module:model/RecurringDetail>} details
+   * @member {Array.<module:model/RecurringDetailContainer>} details
    */
   exports.prototype['details'] = undefined;
   /**
@@ -121,7 +121,7 @@
 
   /**
    * Returns Payment details stored for recurring payments.
-   * @return {Array.<module:model/RecurringDetail>}
+   * @return {Array.<module:model/RecurringDetailContainer>}
    */
   exports.prototype.getDetails = function() {
     return this['details'];
@@ -129,7 +129,7 @@
 
   /**
    * Sets Payment details stored for recurring payments.
-   * @param {Array.<module:model/RecurringDetail>} details Payment details stored for recurring payments.
+   * @param {Array.<module:model/RecurringDetailContainer>} details Payment details stored for recurring payments.
    */
   exports.prototype.setDetails = function(details) {
     this['details'] = details;

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/BankAccount', 'model/Card', 'model/Name', 'model/RecurringDetail'], factory);
+    define(['ApiClient', 'model/Address', 'model/BankAccount', 'model/Card', 'model/Name'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Address'), require('./BankAccount'), require('./Card'), require('./Name'), require('./RecurringDetail'));
+    module.exports = factory(require('../ApiClient'), require('./Address'), require('./BankAccount'), require('./Card'), require('./Name'));
   } else {
     // Browser globals (root is window)
     if (!root.AdyenApiJs) {
       root.AdyenApiJs = {};
     }
-    root.AdyenApiJs.RecurringDetail = factory(root.AdyenApiJs.ApiClient, root.AdyenApiJs.Address, root.AdyenApiJs.BankAccount, root.AdyenApiJs.Card, root.AdyenApiJs.Name, root.AdyenApiJs.RecurringDetail);
+    root.AdyenApiJs.RecurringDetail = factory(root.AdyenApiJs.ApiClient, root.AdyenApiJs.Address, root.AdyenApiJs.BankAccount, root.AdyenApiJs.Card, root.AdyenApiJs.Name);
   }
-}(this, function(ApiClient, Address, BankAccount, Card, Name, RecurringDetail) {
+}(this, function(ApiClient, Address, BankAccount, Card, Name) {
   'use strict';
 
 
@@ -60,7 +60,6 @@
 
 
 
-
     _this['recurringDetailReference'] = recurringDetailReference;
 
 
@@ -78,9 +77,6 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('RecurringDetail')) {
-        obj['RecurringDetail'] = RecurringDetail.constructFromObject(data['RecurringDetail']);
-      }
       if (data.hasOwnProperty('additionalData')) {
         obj['additionalData'] = ApiClient.convertToType(data['additionalData'], {'String': 'String'});
       }
@@ -130,10 +126,6 @@
     return obj;
   }
 
-  /**
-   * @member {module:model/RecurringDetail} RecurringDetail
-   */
-  exports.prototype['RecurringDetail'] = undefined;
   /**
    * This field contains additional data, which may be returned in a particular response. The additionalData object consists of entries, each of which includes the key and value. For more information on possible key-value pairs, refer to [RecurringDetail.additionalData](https://docs.adyen.com/developers/api-reference/recurring-api#recurringdetailadditionaldata).
    * @member {Object.<String, String>} additionalData
@@ -205,21 +197,6 @@
    * @member {String} variant
    */
   exports.prototype['variant'] = undefined;
-
-
-  /**
-   * @return {module:model/RecurringDetail}
-   */
-  exports.prototype.getRecurringDetail = function() {
-    return this['RecurringDetail'];
-  }
-
-  /**
-   * @param {module:model/RecurringDetail} recurringDetail
-   */
-  exports.prototype.setRecurringDetail = function(recurringDetail) {
-    this['RecurringDetail'] = recurringDetail;
-  }
 
 
   /**

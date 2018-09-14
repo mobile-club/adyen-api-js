@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recurringDetail** | [**RecurringDetail**](RecurringDetail.md) |  | [optional] 
 **additionalData** | **{String: String}** | This field contains additional data, which may be returned in a particular response. The additionalData object consists of entries, each of which includes the key and value. For more information on possible key-value pairs, refer to [RecurringDetail.additionalData](https://docs.adyen.com/developers/api-reference/recurring-api#recurringdetailadditionaldata). | [optional] 
 **alias** | **String** | The alias of the credit card number. Applies only to recurring contracts storing credit card details | [optional] 
 **aliasType** | **String** | The alias type of the credit card number. Applies only to recurring contracts storing credit card details. | [optional] 
